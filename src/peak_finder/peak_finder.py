@@ -3,6 +3,10 @@ from random import sample
 
 import numpy as np
 
+"""
+TODO Add description
+"""
+
 
 # Checking if the list is empty or if there is only one element in the list
 def validate(lst):
@@ -16,7 +20,7 @@ def validate(lst):
 
 
 # Peak finder 2
-def peak_finder_2(lst):
+def peak_finder_2(lst) -> str:
     # Recording start time
     start = timeit.default_timer()
 
