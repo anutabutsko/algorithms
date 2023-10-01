@@ -20,19 +20,19 @@ in the algorithm.
 
 
 # function that generates a random list of given length
-def generate_random_list(length):
+def generate_random_list(length) -> list:
     return [randint(0, 1000) for _ in range(length)]
 
 
 # swap function part of our bubble sort
-def swap(lst, pos1, pos2):
-    lst[pos1], lst[pos2] = lst[pos2], lst[pos1]
+def swap(input_lst, pos1, pos2) -> list:
+    input_lst[pos1], input_lst[pos2] = input_lst[pos2], input_lst[pos1]
 
-    return lst
+    return input_lst
 
 
 # bubble sort function that iterates through every element and compares them
-def bubble_sort(lst):
+def bubble_sort(lst) -> list:
     for i in range(0, len(lst)):
         for j in range(len(lst) - 1, i, -1):
             if lst[j] < lst[j - 1]:
@@ -58,7 +58,7 @@ time = mean(time)  # finding the average of all times recorded
 print(f'Average time taken by the bubble sort algorithm to sort 1000 lists, each containing 20 elements is {time:.15f}')
 
 # Code for calculating the average runtimes for 40 lists increasing in size
-len_lsts = [i * 20 for i in range(1, 41)]  # creating a list with lenghths that will be used to generate random lists
+len_lsts = [i * 20 for i in range(1, 41)]  # creating a list with lengths that will be used to generate random lists
 average_runtimes = []
 for len_lst in len_lsts:
     runtimes = []  # a list to save runtimes for 1000 iterations of each size list
