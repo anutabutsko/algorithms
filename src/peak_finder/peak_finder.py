@@ -134,7 +134,7 @@ def peak_finder_23(lst):
     return f'{lst[i][j]}, Time: {time:.15f}'
 
 
-# Creating sample data
+# Creating sample payload
 lst_1dim = sample(range(0, 1000000), 1000000)
 lst_2dim = np.random.choice(1000000, size=(1000, 1000), replace=False)
 print(lst_1dim)
@@ -143,7 +143,7 @@ print(lst_1dim)
 lst_1dim2 = [i for i in range(10000)]
 lst_2dim2 = np.array([[i for i in range(10000)] for _ in range(1000)])
 
-# Running data through functions
+# Running payload through functions
 peak_2 = peak_finder_2(lst_1dim)
 peak_3 = peak_finder_3(lst_1dim)
 peak_22 = peak_finder_22(lst_2dim2)
