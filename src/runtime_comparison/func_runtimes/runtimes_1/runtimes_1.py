@@ -46,15 +46,15 @@ plt.savefig('R1_R2_functions_plot.pdf')
 plt.show()
 
 """
-From the plot, it is evident that the functions R1 and R2 intersect at a single point, 
-close to n = 0. The R1 function, which is quadratic, exhibits a rapid growth rate even 
+From the plot, it is evident that the functions R1 and R2 intersect at a single point,
+close to n = 0. The R1 function, which is quadratic, exhibits a rapid growth rate even
 for small values of n, dominating the growth of R2.
-Although it may seem like the R2 function is growing very slowly, creating an illusion 
-of a constant-time function when plotted alongside R1, it is important to note that it 
-is not constant; it has a linearithmic growth rate due to the term 64n log₂(n). 
-Its growth is much slower compared to the quadratic growth of R1, but it still 
+Although it may seem like the R2 function is growing very slowly, creating an illusion
+of a constant-time function when plotted alongside R1, it is important to note that it
+is not constant; it has a linearithmic growth rate due to the term 64n log₂(n).
+Its growth is much slower compared to the quadratic growth of R1, but it still
 increases as n gets larger.
-To get a clearer understanding of R2’s behavior, we can refer to separate plots for R1 
-and R2, further down in this file. These plots illustrate grows rates of O(n²) and 
+To get a clearer understanding of R2’s behavior, we can refer to separate plots for R1
+and R2, further down in this file. These plots illustrate grows rates of O(n²) and
 O(n log(n)) distinctly.
 """

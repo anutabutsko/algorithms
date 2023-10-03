@@ -1,8 +1,8 @@
-from random import randint
 import timeit
+from random import randint
 from statistics import mean
-import matplotlib.pyplot as plt
 
+import matplotlib.pyplot as plt
 
 """
 Max heapify implementation
@@ -31,12 +31,12 @@ def max_heapify(array, i):
     # Swap with the largest child
     if largest != i:
         array[i], array[largest] = array[largest], array[i]
-        # Call function recursively until there is a positive comparison or we reached the bottom of the heap
+        # Call function recursively until there is a positive comparison, or we reached the bottom of the heap
         max_heapify(array, largest)
 
 
 """
-Building max heap 
+Building max heap
 The FOR loop executes theta(n) times
 Each execution of the FOR loop includes a call to max_heapify()
 The other calls in the FOR loop run at constant time
@@ -96,10 +96,9 @@ plt.savefig('Max_Heap.pdf')
 plt.show()
 
 """
-We can visualize the average growth of the Max Heap Algorithm in the plot provided in the attached PDF file. 
-Although we have previously established that T(n) = theta(n log(n)), the plot might give an impression of 
-linear growth. However, it's essential to underscore that the Max Heap Algorithm's growth rate is indeed 
+We can visualize the average growth of the Max Heap Algorithm in the plot provided in the attached PDF file.
+Although we have previously established that T(n) = theta(n log(n)), the plot might give an impression of
+linear growth. However, it's essential to underscore that the Max Heap Algorithm's growth rate is indeed
 n log(n). As n becomes significantly large, its growth will surpass that of a linear function, showing
 a more pronounced curvature in the plot.
 """
-

@@ -1,15 +1,15 @@
 # Max heap implementation
 def max_heap(lst, value):
     lst.append(value)  # Add the new value to the end of the heap
-    index = len(lst) - 1  # Get the index of the newly added element
+    idx = len(lst) - 1  # Get the index of the newly added element
 
     # Moving the newly added element up the tree as long as it's greater
     # than its parent, maintaining the max heap property
-    while index > 0:
-        parent_index = (index - 1) // 2
-        if lst[index] > lst[parent_index]:
-            lst[index], lst[parent_index] = lst[parent_index], lst[index]
-            index = parent_index
+    while idx > 0:
+        parent_index = (idx - 1) // 2
+        if lst[idx] > lst[parent_index]:
+            lst[idx], lst[parent_index] = lst[parent_index], lst[idx]
+            idx = parent_index
         else:
             break
 
@@ -18,7 +18,7 @@ def max_heap(lst, value):
 def pop_max_heap(lst):
     # Checking if list is empty
     if not list:
-        return f"The array is empty"
+        return "The array is empty"
 
     # Checking if there is only one element in the list
     if len(lst) == 1:
@@ -41,11 +41,11 @@ def pop_max_heap(lst):
             right = index * 2 + 2
             largest = index
 
-            # Comparing largest value to the left child
+            # Comparing the largest value to the left child
             if left < n and lst[largest] < lst[left]:
                 largest = left
 
-            # Comparing largest value to the right child
+            # Comparing the largest value to the right child
             if right < n and lst[largest] < lst[right]:
                 largest = right
 
@@ -62,7 +62,7 @@ def pop_max_heap(lst):
     return max_elem
 
 
-# Function that organizes student data into a dictionary
+# Function that organizes student payload into a dictionary
 def student_data(name, student_type, computer_science, math, year, orientation_day):
     return {"name": name,
             "student_type": student_type,
@@ -73,44 +73,44 @@ def student_data(name, student_type, computer_science, math, year, orientation_d
 
 
 # Prioritizing each student
-def priority(data, index):
-    priority = [
-        1 if data["student_type"] == "Graduate" else 0,
-        1 if data["computer_science"] == True else 0,
-        1 if data["math"] == True else 0,
-        data["year"],  # Closer students are to graduating - higher the priroty
-        -data["orientation_day"],
+def priority(payload, idx):
+    lst_priority = [
+        1 if payload["student_type"] == "Graduate" else 0,
+        1 if payload["computer_science"] is True else 0,
+        1 if payload["math"] is True else 0,
+        payload["year"],  # Closer students are graduating - higher the priority
+        -payload["orientation_day"],
         # Reversing the orientation day value to give priority to students that register earlier
-        index  # Unique identifier of each student
+        idx  # Unique identifier of each student
     ]
 
-    return priority
+    return lst_priority
 
 
 # Processing each student and admitting by priority criteria
-def process_admissions(data):
+def process_admissions(payload):
     lst = []  #
     admitted_students = []  # Initialize a list for admitted students
 
     # Enumerating through student requests and prioritizing them
-    for index, student in enumerate(data):
-        priority_student = priority(student, index)
+    for idx, student in enumerate(payload):
+        priority_student = priority(student, idx)
         max_heap(lst, priority_student)  # Adding every priority to our max heap
 
     # Admitting students up to a limit 25 based on max heap priorities
     while len(admitted_students) < 25 and len(lst) > 0:
-        _, computer_science, math, year, orientation_day, index = pop_max_heap(lst)
-        admitted_students.append(index)
+        _, computer_science, math, year, orientation_day, idx = pop_max_heap(lst)
+        admitted_students.append(idx)
 
     return admitted_students
 
 
 # Making offers to admitted students if places become available
-def make_offers(data, admitted_students, dropouts):
+def make_offers(payload, admitted_students, dropouts):
     offers = []
 
     # Checking for admitted students who haven't dropped the class
-    for idx, request in enumerate(data):
+    for idx, request in enumerate(payload):
         if idx in admitted_students and idx not in dropouts:
             offers.append(request)
 
@@ -118,7 +118,7 @@ def make_offers(data, admitted_students, dropouts):
     while len(offers) < 25:
         # Checking for the next most qualified student who hasn't been previously admitted
         next_student = None
-        for index, request in enumerate(data):
+        for index, request in enumerate(payload):
             if index not in admitted_students and index not in dropouts:
                 if next_student is None or priority(request, index) > priority(next_student, index):
                     next_student = request
@@ -128,7 +128,7 @@ def make_offers(data, admitted_students, dropouts):
             break
 
         # Marking the student as admitted and add them to the offers list
-        admitted_students.append(data.index(next_student))
+        admitted_students.append(payload.index(next_student))
         offers.append(next_student)
 
     return offers
@@ -136,7 +136,7 @@ def make_offers(data, admitted_students, dropouts):
 
 # MAIN SCRIPT
 
-# Creating sample data
+# Creating sample payload
 data = [student_data("Spider-man", "Graduate", False, True, 2, 2),
         student_data("Black Panther", "Undergraduate", True, True, 4, 1),
         student_data("Deadpool", "Graduate", False, False, 3, 3),
@@ -172,7 +172,7 @@ admitted_students = process_admissions(data)
 
 # print("Admitted students in order:")
 # for index, idx in enumerate(admitted_students):
-#     print(index+1, data[idx]["name"])
+#     print(index+1, payload[idx]["name"])
 
 # Simulating dropouts
 dropouts = [admitted_students[3], admitted_students[17]]

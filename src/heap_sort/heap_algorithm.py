@@ -9,7 +9,7 @@ def max_heap(lst, n, i):
     if left < n and lst[largest] < lst[left]:
         largest = left
 
-    # Comparing largest value to the right child
+    # Comparing the largest value to the right child
     if right < n and lst[largest] < lst[right]:
         largest = right
 
@@ -25,7 +25,7 @@ def max_heap(lst, n, i):
 
 # MAIN SCRIPT
 
-# Creating sample data
+# Creating sample payload
 lst = [2, 7, 3, 4, 8, 8, 9, 10, 3, 5, 12]
 n = len(lst)
 # Starting node position
