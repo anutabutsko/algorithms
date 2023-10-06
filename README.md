@@ -15,4 +15,7 @@ This repository is a collection of foundational algorithms used in computer scie
 
 Each algorithm is contained in its respective directory. Navigate to the directory of interest and follow the usage instructions provided in the specific README for that algorithm.
 
+## Dependencies
+
+Ensure you have requirements.txt installed.
 
