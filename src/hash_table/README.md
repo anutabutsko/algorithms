@@ -39,15 +39,12 @@ The script depends on the following Python libraries:
 - `timeit`: For measuring the runtime of code segments.
 - `matplotlib`: For plotting the histogram.
 
-## Visual Output
-
-At the end of the script, a histogram will be displayed, showing the distribution of runtimes when searching the hash table for the randomly chosen keys.
 
 ## **Results & Discussion**
 
 ### **Hash Table Search Runtime Analysis**
 
-Using the hash table implementation that utilizes open addressing with modular arithmetic and linear probing for collision resolution, we measured the runtime of search operations for 50 randomly selected keys. The keys were chosen from a dataset of 1,000 distinct random 10-digit numbers.
+Using the hash table implementation that utilizes open addressing with modular arithmetic and linear probing for collision resolution, we measured the runtime of search operations for 50 randomly selected keys. The keys were chosen from a dataset of 1000 distinct random 10-digit numbers.
 
 The histogram below provides a distribution of these runtimes:
 
@@ -57,7 +54,7 @@ The histogram below provides a distribution of these runtimes:
 
 1. **General Performance**: The majority of the search operations seem to lie in a very low time bracket, indicating that the hash table retrieval, on average, is extremely fast.
 
-2. **Few Outliers**: There are few search operations that took slightly longer. This can be attributed to the linear probing mechanism of our open addressing which might have led to more "hops" in some scenarios.
+2. **Few Outliers**: There are few search operations that took slightly longer. This could be related to the linear probing mechanism of our open addressing which might have led to more probes in some searches.
 
 3. **Consistency**: Given the uniform distribution of our random keys, it's evident that our hash table implementation is providing a consistent performance for most of the keys, as indicated by the major spike in the histogram.
 
@@ -66,8 +63,10 @@ The histogram below provides a distribution of these runtimes:
 Our hash table, as visualized, is working as intended for the majority of cases. The efficiency of search operations showcases the strength of hash tables in terms of data retrieval. The open addressing mechanism, although introducing some delay in a few scenarios due to collisions, still manages to provide a quick resolution and retrieval.
 
 **Unexpected Observations:**
-One of the unexpected outcomes was the presence of few search operations that took longer than the majority. While we did anticipate some collisions given the nature of hashing, the delay caused by linear probing in those particular cases was intriguing. It suggests that there were areas in the hash table that had a higher density or clustering of filled slots, causing the search operation to "hop" multiple times before finding the key.
+One of the unexpected outcomes was the presence of few search operations that took longer than the majority. While we did anticipate some collisions given the nature of hashing, the delay caused by linear probing in those particular cases was interesting. It suggests that there were areas in the hash table that had a higher clustering of filled slots, causing the search operation to probe multiple times before finding the key.
 
 ### **Concluding Thoughts:**
 
-Hash tables, especially with open addressing, provide a delicate balance between efficient use of space and time. While our implementation was largely efficient, the nuances of collision resolution become apparent when analyzing the results. Future work might involve exploring other probing techniques or even alternative collision resolution mechanisms like chaining to see how they compare in performance.
+While open addressing conserves space by avoiding the use of pointers and ensuring all entries are stored within the hash table itself, the linear probing technique we used can introduce slight delays when clusters form. These clusters can sometimes lead to increased search times, especially if many keys hash to the same index.
+
+This underscores the importance of selecting appropriate collision resolution strategies. Collisions are inevitable when using hash tables; however, our choice of resolution strategy can significantly impact overall performance.
