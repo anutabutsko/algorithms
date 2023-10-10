@@ -45,12 +45,31 @@ class HashTable:
 
     # Retrieves a numeric value from the hash table if it exists.
     def search_by_value(self, value):
-        idx = self.hash(value)
+        idx = flag = self.hash(value)
+
         if self.table[idx] == value:
             return self.table[idx]
 
+        idx += 1
+
+        while idx != flag:
+            if idx >= len(self.table):
+                idx = 0
+
+            if self.table[idx] == value:
+                return self.table[idx]
+            elif self.table[idx] is None:
+                return f'Value {value} not fount'
+
+            idx += 1
+
+        return f'Value {value} not fount'
+
     def search_by_key(self, idx):
-        return self.table[idx]
+        if self.table[idx]:
+            return self.table[idx]
+
+        return f'Key {idx} not fount'
 
     # Computes a hash value using the modulo operation.
     def hash(self, value):
@@ -79,6 +98,7 @@ for num in random_sample:
 
 # Print the contents of the hash table.
 print(hashtable)
+print(hashtable.search_by_value(3113295419))
 
 # Initiate an empty list to store runtimes.
 runtimes = []
@@ -92,9 +112,9 @@ for key in random_keys:
     runtimes.append(stop - start)
 
 # Construct a histogram to visualize the results
-plt.hist(runtimes)
-plt.title("Runtimes of Hash Table")
-plt.xlabel("Time in seconds")
-plt.ylabel("Number of keys")
-plt.grid(True)
-plt.show()
+# plt.hist(runtimes)
+# plt.title("Runtimes of Hash Table")
+# plt.xlabel("Time in seconds")
+# plt.ylabel("Number of keys")
+# plt.grid(True)
+# plt.show()
