@@ -26,22 +26,31 @@ class HashTable:
 
     # Inserts a numeric value into the hash table.
     def insert(self, value):
-        idx = self.hash(value)
-        if idx:
+        idx = flag = self.hash(value)
+
+        if type(idx) is int:
             # Check if the slot is empty or has the same value.
             if self.table[idx] is None or self.table[idx] == value:
                 self.table[idx] = value
+                return f'Value {value} added, key = {idx}'
+
             else:
                 # Handle hash collision using linear probing.
-                while True:
-                    idx += 1
+                idx += 1
+
+                while idx != flag:
                     # Start from the beginning of the table if reached the end.
                     if idx >= len(self.table):
                         idx = 0
                     # Place the value in the next empty or matching slot.
                     if self.table[idx] is None or self.table[idx] == value:
                         self.table[idx] = value
-                        break
+                        return f'Value {value} added, key = {idx}'
+
+                    idx += 1
+
+            # If the value was not added, return False to indicate that no room is left in the table.
+            return False
 
     # Retrieves a numeric value from the hash table if it exists.
     def search_by_value(self, value):
@@ -94,7 +103,12 @@ hashtable = HashTable(size=1021)
 
 # Insert each number from the sample into the hash table.
 for num in random_sample:
-    hashtable.insert(num)
+    result = hashtable.insert(num)
+    if result is False:
+        print(f'Value {num} not added. Hash table ran out of space, no more values may be inserted.')
+        break
+
+    print(result)
 
 # Print the contents of the hash table.
 print(hashtable)
@@ -112,9 +126,9 @@ for key in random_keys:
     runtimes.append(stop - start)
 
 # Construct a histogram to visualize the results
-# plt.hist(runtimes)
-# plt.title("Runtimes of Hash Table")
-# plt.xlabel("Time in seconds")
-# plt.ylabel("Number of keys")
-# plt.grid(True)
-# plt.show()
+plt.hist(runtimes)
+plt.title("Runtimes of Hash Table")
+plt.xlabel("Time in seconds")
+plt.ylabel("Number of keys")
+plt.grid(True)
+plt.show()
