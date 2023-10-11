@@ -86,7 +86,7 @@ class HashTable:
             return value % len(self.table)
 
         # Print an error if a non-numeric value is provided.
-        print(f'{value} not added, provide numeric values only')
+        print(f'Value "{value}" not added, provide numeric values only')
 
 
 # Set a random seed for reproducibility.
