@@ -74,6 +74,7 @@ class HashTable:
 
         return f'Value {value} not fount'
 
+    # Retrieves a numeric value from the hash table by key.
     def search_by_key(self, idx):
         if self.table[idx]:
             return self.table[idx]
