@@ -11,7 +11,7 @@ def peak_finder_22(lst):
     rows = len(lst)
     columns = len(lst[0])
 
-    # Checking every row and every column in matrix until a peak is found - O(n^2) time
+    # Checking every row and every column in matrix until a peak is found - O(x^2) time
     for i in range(rows):
         for j in range(columns):
             if i > 0 and lst[i][j] < lst[i - 1][j]:

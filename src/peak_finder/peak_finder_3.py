@@ -25,7 +25,7 @@ def peak_finder_3(lst):
         return f'{validate(lst)}, Time: {time:.15f}'
 
     # Splitting the list in half and comparing values on both sides.
-    # Continue recursively if one of the values is larger than the selected one - O(log n) time
+    # Continue recursively if one of the values is larger than the selected one - O(log x) time
     n = len(lst)
     m = n // 2
     if lst[m] < lst[m - 1]:
