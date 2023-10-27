@@ -27,7 +27,7 @@ def peak_finder_2(lst) -> str:
     n = len(lst)
     p = lst[0]
     j = 1
-    # Iterating through every element in the list and comparing to the following value - O(n) time
+    # Iterating through every element in the list and comparing to the following value - O(x) time
     while j < n and p < lst[j]:
         p = lst[j]
         j += 1

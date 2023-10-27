@@ -14,7 +14,7 @@ that follow it, these two elements are passed to the Swap()
 function, which swaps their positions, gradually sorting
 the list from smallest to largest. This sorting method is known
 as "Bubble Sort". Its time complexity is generally represented
-as T(n) = O(n²), which can be inferred from the two nested loops
+as T(x) = O(x²), which can be inferred from the two nested loops
 in the algorithm.
 """
 
@@ -87,7 +87,7 @@ plt.show()
 
 """
 From the generated plot, it is evident that the curve increasingly
-assumes a quadratic(n^2) nature as the size of the input n grows.
+assumes a quadratic(x^2) nature as the size of the input x grows.
 This illustrates the algorithm's quadratic time complexity, meaning
 that the runtime increases quadratically as the number of elements
 in the list increases.

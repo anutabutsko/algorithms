@@ -21,7 +21,7 @@ def peak_finder_23(lst):
             i = row
 
     # Comparing values to left and to the right - continue recursively if one of the values
-    # is larger than the selected one - O(nlog n) time
+    # is larger than the selected one - O(nlog x) time
     if j > 0 and lst[i][j] < lst[i][j - 1]:
         return peak_finder_23(lst[:, :j - 1])
     if j < columns - 1 and lst[i][j] < lst[i][j + 1]:

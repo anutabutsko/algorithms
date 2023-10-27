@@ -9,7 +9,7 @@ Max heapify implementation
 Each comparison has constant cost upper bound
 Each cost has constant cost upper bound
 Because of the recursive nature, the process repeats no more than the height of the heap
-The runtime of max_heapify() algorithm is O(log(n))
+The runtime of max_heapify() algorithm is O(log(x))
 """
 
 
@@ -37,10 +37,10 @@ def max_heapify(array, i):
 
 """
 Building max heap
-The FOR loop executes theta(n) times
+The FOR loop executes theta(x) times
 Each execution of the FOR loop includes a call to max_heapify()
 The other calls in the FOR loop run at constant time
-The worst case run time of build_max_heap() is theta(n log(n))
+The worst case run time of build_max_heap() is theta(x log(x))
 """
 
 
@@ -97,8 +97,8 @@ plt.show()
 
 """
 We can visualize the average growth of the Max Heap Algorithm in the plot provided in the attached PDF file.
-Although we have previously established that T(n) = theta(n log(n)), the plot might give an impression of
+Although we have previously established that T(x) = theta(x log(x)), the plot might give an impression of
 linear growth. However, it's essential to underscore that the Max Heap Algorithm's growth rate is indeed
-n log(n). As n becomes significantly large, its growth will surpass that of a linear function, showing
+x log(x). As x becomes significantly large, its growth will surpass that of a linear function, showing
 a more pronounced curvature in the plot.
 """

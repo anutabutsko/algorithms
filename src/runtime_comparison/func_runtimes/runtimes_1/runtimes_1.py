@@ -20,18 +20,18 @@ def intersection(n):
 
 # MAIN SCRIPT
 
-n_values = np.linspace(1, 1000000, 1000)  # Generating n values
+n_values = np.linspace(1, 1000000, 1000)  # Generating x values
 
-r1_values = r1(n_values)  # Running n values through R1 function
-r2_values = r2(n_values)  # Running n values through R2 function
+r1_values = r1(n_values)  # Running x values through R1 function
+r2_values = r2(n_values)  # Running x values through R2 function
 
 # Generating the plots
-plt.plot(n_values, r1_values, label='R1(n) = 4n^2 + n')
-plt.plot(n_values, r2_values, label='R2(n) = 64nlog2(n) + 2n')
+plt.plot(n_values, r1_values, label='R1(x) = 4n^2 + x')
+plt.plot(n_values, r2_values, label='R2(x) = 64nlog2(x) + 2n')
 
 # Labels and title
-plt.xlabel('n')
-plt.ylabel('R(n)')
+plt.xlabel('x')
+plt.ylabel('R(x)')
 plt.title('Plot of R1 and R2 functions')
 plt.legend()
 
@@ -47,14 +47,14 @@ plt.show()
 
 """
 From the plot, it is evident that the functions R1 and R2 intersect at a single point,
-close to n = 0. The R1 function, which is quadratic, exhibits a rapid growth rate even
-for small values of n, dominating the growth of R2.
+close to x = 0. The R1 function, which is quadratic, exhibits a rapid growth rate even
+for small values of x, dominating the growth of R2.
 Although it may seem like the R2 function is growing very slowly, creating an illusion
 of a constant-time function when plotted alongside R1, it is important to note that it
-is not constant; it has a linearithmic growth rate due to the term 64n log₂(n).
+is not constant; it has a linearithmic growth rate due to the term 64n log₂(x).
 Its growth is much slower compared to the quadratic growth of R1, but it still
-increases as n gets larger.
+increases as x gets larger.
 To get a clearer understanding of R2’s behavior, we can refer to separate plots for R1
-and R2, further down in this file. These plots illustrate grows rates of O(n²) and
-O(n log(n)) distinctly.
+and R2, further down in this file. These plots illustrate grows rates of O(x²) and
+O(x log(x)) distinctly.
 """
