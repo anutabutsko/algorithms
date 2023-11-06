@@ -3,19 +3,19 @@ import random
 import numpy as np
 
 
-def generate_graph():
-    random.seed(123)
-    N = 10
-    # a = np.random.random_integers(1,4,size=(N,N))
-    a = np.random.randint(1, 4, (N, N))
+def generate_graph(seed=None, n=10, start=1, end=4):
+    if seed:
+        random.seed(seed)
+    N = n
+    a = np.random.randint(start, end, (N, N))
     A = (a + a.T)
     for i in range(N):
         A[i, i] = 0
-    b = np.random.randint(1, 4, size=(N, N))
+    b = np.random.randint(start, end, size=(N, N))
     B = (b + b.T)
     for i in range(N):
         B[i, i] = 0
-    c = np.random.randint(1, 4, size=(N, N))
+    c = np.random.randint(start, end, size=(N, N))
     C = (c + c.T)
     for i in range(N):
         C[i, i] = 0
