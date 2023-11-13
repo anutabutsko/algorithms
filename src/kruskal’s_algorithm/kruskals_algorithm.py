@@ -122,7 +122,6 @@ def compute_runtime(runs, size):
 
     for _ in range(runs):
         graph = generate_graph(n=size)
-
         # Start timer.
         start = perf_counter()
         # Run DFS on the generated graph.

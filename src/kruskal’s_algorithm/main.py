@@ -32,8 +32,8 @@ plt.grid(True)
 
 plt.show()
 
-# Three largest weights.
-print(f"\nThree Largest Weights:")
+# Three largest weights in the graph.
+print("\nThree Largest Weights in the Graph:")
 print(*find_largest_weights(graph, 3), sep=', ')
 
 # Return three edges with the largest weights from MST.
