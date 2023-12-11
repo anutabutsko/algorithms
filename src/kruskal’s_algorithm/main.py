@@ -16,7 +16,7 @@ print("\nMinimum Spanning Tree's Edges:")
 for edge in kruskalsAlgorithm(graph):
     print(f"{edge[0]} -> {edge[1]}, weight {edge[2]}")
 
-# Increasing N.
+# # Increasing N.
 sizes = [i for i in range(10, 300, 10)]
 times = []
 
