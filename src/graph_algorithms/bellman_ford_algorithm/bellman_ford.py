@@ -26,7 +26,7 @@ class Graph:
             else:
                 print(f'Path from node {source} to node {destination} does not exist.')
 
-    # Bellman-Ford algorithm
+    # bellman_ford_algorithm
     def BellmanFord(self, source):
         # Initialize distances dictionary with initial values of all edges as Infinity and an empty string to save the path
         distances = {i: [float("Inf"), ""] for i in self.vertices}
@@ -65,7 +65,7 @@ for edge in payload:
     vertex, edge, weight = edge
     g.add_edge(vertex, edge, weight)
 
-# Run the Bellman-Ford algorithm that finds the path from vertex 0 to every edge
+# Run the bellman_ford_algorithm that finds the path from vertex 0 to every edge
 g.BellmanFord(0)
 
 """
@@ -107,4 +107,45 @@ Shortest distance from node 0 to node 19 is 5.
 Path: 0 -> 1 -> 13 -> 19
 Shortest distance from node 0 to node 20 is 9.
 Path: 0 -> 1 -> 14 -> 16 -> 20
+"""
+
+"""
+For initialization:
+
+import math
+V = [0,1,2,3,4,5,6]
+E = [[0,1,3], [0,2,2], [0,3,1], [1,4,5], [2,1,1],
+[2,4,3], [2,3,1], [2,5,4], [3,5,7], [4,6,5], [5,6,8]]
+INF = math.inf
+d = [0]
+for i in range(0,len(V)-1):
+    d.append(INF)
+print(’Initialization is ’,d)
+"""
+
+"""
+The Bellman-Ford algorithm is a graph algorithm used to find the shortest paths from a single source vertex 
+to all other vertices in a weighted graph. Here's a short description of how it works:
+1. Initialization: First, the distances to all vertices are set to infinity, except for the source vertex, 
+which is set to zero.
+2. Relaxation: The algorithm then iteratively relaxes edges in the graph. Relaxation means that for each 
+edge, the algorithm checks if the shortest path to the destination vertex of the edge can be improved by 
+going through the source vertex of the edge. If it can, the distance to the destination vertex is updated.
+3. Iteration: This process of relaxation is repeated for all edges in the graph. In the Bellman-Ford 
+algorithm, this relaxation step is repeated ( V - 1 ) times, where ( V ) is the number of vertices 
+in the graph. This ensures that the shortest path to each vertex, if it exists, is correctly calculated.
+4. Negative Cycle Detection: After the ( V - 1 ) iterations, the algorithm checks for negative weight 
+cycles in the graph by performing one more iteration of relaxation. If the distance to any vertex is 
+updated in this iteration, it means there is a negative weight cycle in the graph. Since paths in such 
+a cycle can be reduced indefinitely, the shortest path is not well-defined.
+
+The Bellman-Ford algorithm is especially useful in graphs where edges can have negative weights, unlike 
+algorithms like Dijkstra's, which only work with non-negative edge weights. However, it's less efficient 
+than Dijkstra's for graphs without negative weight edges due to its higher time complexity.
+
+The runtime for Bellman-Ford is O(|V||E|)
+
+Theorem
+Bellman-Ford will stabilize in |V| − 1 iterations of the external FOR-loop if and only if there are 
+no negative cycles.
 """
