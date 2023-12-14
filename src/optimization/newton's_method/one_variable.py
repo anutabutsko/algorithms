@@ -1,5 +1,7 @@
 """
-Finds f(x)=0
+Gradient descent algorithms find local minima by moving along the direction of
+the steepest descent while Newton's method takes into account curvature information
+and thereby often improves convergence.
 """
 
 
