@@ -41,3 +41,7 @@ print("\nThree Edges with Largest Weights from MST:")
 edges = kruskalsAlgorithm(graph)
 for i in range(-1, -4, -1):
     print(f"{edges[i][0]} -> {edges[i][1]}, weight {edges[i][2]}")
+
+"""
+The runtime of MST-Kruskal is O(|E|log(|E|)).
+"""

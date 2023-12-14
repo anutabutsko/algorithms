@@ -1,3 +1,8 @@
+"""
+Finds f(x)=0
+"""
+
+
 from sympy import symbols, diff
 
 
