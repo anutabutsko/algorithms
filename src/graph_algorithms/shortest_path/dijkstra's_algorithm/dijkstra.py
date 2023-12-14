@@ -45,9 +45,16 @@ for key, value in result.items():
         print(f"Path: {' -> '.join(value[1])} -> {key}")
 
 """
+Single source shortest paths
+    Runtime: O(|V|log(|V|) + |E|)
+All pairs shortest paths
+    Runtime: O(|V|(|V|log(|V|) + |E|))
+
+Provides shortest path from one node to all nodes.
+
 For greedy algorithm to work, the problem should exhibit:
-Optimal substructure
-Overlapping subproblems
+1. Optimal substructure
+2. Overlapping sub problems
 Once we have checked that the above hold, the problem should exhibit the greedy choice property:
 We can assemble an optimal solution by making locally optimal choices.
 """

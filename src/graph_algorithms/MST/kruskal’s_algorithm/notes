@@ -1,0 +1,10 @@
+Kruskal's Algorithm:
+
+Finds minimum cost spanning tree.
+
+Will take all the vertices from the graph and all edges - 1.
+S = (V', E')
+V' = V
+E' = V - 1
+
+

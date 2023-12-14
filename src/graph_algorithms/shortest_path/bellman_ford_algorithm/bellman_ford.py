@@ -144,6 +144,7 @@ algorithms like Dijkstra's, which only work with non-negative edge weights. Howe
 than Dijkstra's for graphs without negative weight edges due to its higher time complexity.
 
 The runtime for Bellman-Ford is O(|V||E|)
+Provides shortest path from one node to all nodes, negative edges allowed.
 
 Theorem
 Bellman-Ford will stabilize in |V| − 1 iterations of the external FOR-loop if and only if there are 
